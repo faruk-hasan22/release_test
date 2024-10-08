@@ -3,7 +3,7 @@ name: Run Playwright Tests
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to trigger the action on
+      - main  # Adjust this to your default branch or any other branch
 
 jobs:
   test:
@@ -22,4 +22,4 @@ jobs:
         run: npm install
 
       - name: Run Playwright tests
-        run: npm test  # Adjust this command if necessary
+        run: npx playwright test  # Run the Playwright tests
