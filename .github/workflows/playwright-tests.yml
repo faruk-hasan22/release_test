@@ -1,0 +1,29 @@
+name: Run Playwright Tests
+
+on:
+  push:
+    branches:
+      - main  # Change this to the branch you want to trigger on push
+      - 'feature/**'  # Optional: Run on feature branches too
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use a GitHub-hosted runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Specify the Node.js version you need
+
+      - name: Install dependencies
+        run: npm install  # Adjust if you're using yarn or another package manager
+
+      - name: Install Playwright Browsers
+        run: npx playwright install
+
+      - name: Run Playwright Tests
+        run: npx playwright test  # Adjust if your test command is different
